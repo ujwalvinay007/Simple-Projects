@@ -10,11 +10,22 @@ void ins_beg(int n,int *a)
 		a[i+1]=a[i];
 	a[0]=b;
 }
-void del_beg(int *n, int *a)
+void ins_end(int *n,int *a)
 {
 	int b;
+	printf("Enter the number to be inserted : ");
+	scanf("%d",&b);
+	a[*n]=b;
+	*n=*n+1;
+}
+void del_beg(int *n, int *a)
+{
 	for(int i=0;i<*n;i++)
 		a[i]=a[i+1];
+	*n=*n-1;
+}
+void del_end(int *n)
+{
 	*n=*n-1;
 }
 int main()
@@ -25,7 +36,7 @@ int main()
 	printf("Enter the array elements : ");
 	for(int i=0;i<n;i++)
 		scanf("%d",&arr[i]);
-	del_beg(&n,arr);
+	del_end(&n);
 	for(int i=0;i<n;i++)
 	{
 		printf("%d ",arr[i]);
