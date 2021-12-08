@@ -40,6 +40,16 @@ void del_end(int *n)
 {
 	*n=*n-1;
 }
+void del_pos(int *n,int *a)
+{
+	int b,pos;
+	printf("Enter the position to be deleted : ");
+	scanf("%d",&pos);
+	for(int i=pos-1;i<*n;i++)
+		a[i]=a[i+1];
+	*n=*n-1;
+}
+
 int main()
 {
 	
@@ -48,7 +58,7 @@ int main()
 	printf("Enter the array elements : ");
 	for(int i=0;i<n;i++)
 		scanf("%d",&arr[i]);
-	ins_pos(&n,arr);
+	del_pos(&n,arr);
 	for(int i=0;i<n;i++)
 	{
 		printf("%d ",arr[i]);
