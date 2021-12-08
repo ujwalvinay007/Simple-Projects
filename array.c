@@ -18,6 +18,18 @@ void ins_end(int *n,int *a)
 	a[*n]=b;
 	*n=*n+1;
 }
+void ins_pos(int *n,int *a)
+{
+	int b,pos;
+	printf("Enter the position to be added : ");
+	scanf("%d",&pos);
+	printf("Enter the value to be added : ");
+	scanf("%d",&b);
+	for(int i=*n;i>=pos-1;i--)
+		a[i]=a[i-1];
+	a[pos-1]=b;
+	*n=*n+1;
+}
 void del_beg(int *n, int *a)
 {
 	for(int i=0;i<*n;i++)
@@ -36,7 +48,7 @@ int main()
 	printf("Enter the array elements : ");
 	for(int i=0;i<n;i++)
 		scanf("%d",&arr[i]);
-	del_end(&n);
+	ins_pos(&n,arr);
 	for(int i=0;i<n;i++)
 	{
 		printf("%d ",arr[i]);
